@@ -1,6 +1,5 @@
 import { NewTask } from "@/components";
 
-
 export const TaskNewPage = () => {
   return (
     <>

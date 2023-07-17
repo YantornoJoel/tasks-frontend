@@ -3,10 +3,6 @@ import { axiosInstanceTasks } from "@/services";
 import { ApiTask, Task, TaskOption, TaskOrder, TaskState } from "@/models";
 import { BASE_URL } from "@/constants";
 
-/**
- * Obtiene el listado de las imágenes
- * @returns Una promesa que se resuelve en un array de objetos de tipo Task
- */
 export const getTasksService = async (): Promise<Task[]> => {
   const { data }: AxiosResponse<ApiTask> = await axiosInstanceTasks.get(
     BASE_URL
@@ -15,12 +11,6 @@ export const getTasksService = async (): Promise<Task[]> => {
   return tasks;
 };
 
-/**
- * Obtiene el detalle de una imágen según un ID
- * @param id - El ID utilizado para filtrar la tarea.
- * @param state - De tipo TaskState, el estado elegido por el usuario para actualizar la tarea.
- * @returns Una promesa que se devuelve un boolean
- */
 export const createTaskService = async (
   name: string,
   description: string,
@@ -34,12 +24,6 @@ export const createTaskService = async (
   return tasks;
 };
 
-/**
- * Obtiene el detalle de una tarea según un ID
- * @param id - El ID utilizado para filtrar la tarea.
- * @param state - De tipo TaskState, el estado elegido por el usuario para actualizar la tarea.
- * @returns Una promesa que se devuelve un boolean
- */
 export const updateTaskService = async (
   id: string,
   state: TaskState
@@ -51,11 +35,6 @@ export const updateTaskService = async (
   return data.ok;
 };
 
-/**
- * Obtiene el detalle de una imágen según un ID
- * @param id - El ID utilizado para eliminar la tarea.
- * @returns Una promesa que se devuelve un boolean
- */
 export const deleteTaskService = async (id: string): Promise<boolean> => {
   const { data }: AxiosResponse<ApiTask> = await axiosInstanceTasks.delete(
     `${BASE_URL}/${id}`

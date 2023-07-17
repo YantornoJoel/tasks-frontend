@@ -1,6 +1,7 @@
+import { useEffect } from "react";
+
 import { ListTask } from "@/components";
 import { useTasksStore } from "@/store";
-import { useEffect } from "react";
 
 export const TaskListPage = () => {
   const getTasks = useTasksStore((state) => state.getTasks);
